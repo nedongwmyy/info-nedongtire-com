@@ -1,0 +1,50 @@
+{
+  "name": "info-nedongtire-com",
+  "version": "1.0.0",
+  "description": "Company Contact Information Aggregation Page",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js"
+    },
+    "./contact.html": "./contact.html"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "contact.html",
+    "contact-data.js",
+    "contact-data-browser.js"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "dev:vue": "cd contact-app && npm run dev",
+    "build": "npm run build:static && npm run build:vue",
+    "build:static": "echo \"Building static version...\" && npm run copy:static",
+    "build:vue": "cd contact-app && npm run build",
+    "copy:static": "mkdir dist\\static 2>nul || echo.>nul && copy contact.html dist\\static\\ >nul && copy contact-data-browser.js dist\\static\\ >nul && copy serve.json dist\\static\\ >nul && copy index.js dist\\static\\ >nul && copy index.d.ts dist\\static\\ >nul && copy _redirects dist\\static\\ >nul && copy netlify.toml dist\\static\\ >nul && copy tencent-cloud-pages.json dist\\static\\ >nul && copy edgeone.json dist\\static\\ >nul && echo \"Static build completed in dist/static/\"",
+    "pages:build": "npm run build",
+    "prepublishOnly": "npm test",
+    "test": "echo Testing package integrity..."
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "express": "^5.1.0",
+    "serve": "^14.0.0"
+  },
+  "keywords": [
+    "contact",
+    "information",
+    "website",
+    "company-info"
+  ],
+  "author": "Guangzhou Nedong Information Technology Co., Ltd.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

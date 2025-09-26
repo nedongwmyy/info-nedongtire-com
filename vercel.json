@@ -1,0 +1,10 @@
+{
+  "static.conf": {
+    "routes": [
+      {
+        "src": "^/$",
+        "dest": "/contact.html"
+      }
+    ]
+  }
+}
